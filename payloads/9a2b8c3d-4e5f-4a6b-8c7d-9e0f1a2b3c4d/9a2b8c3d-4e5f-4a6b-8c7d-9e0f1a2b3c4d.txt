@@ -1,7 +1,0 @@
-internalIP: 10.0.44.19
-externalIP: 8.8.4.4
-userName: GeorgeN
-os: Windows 11
-MACAddress: bc-12-4a-ef-56-9d
-RAM: 48
-Storage: 2000
