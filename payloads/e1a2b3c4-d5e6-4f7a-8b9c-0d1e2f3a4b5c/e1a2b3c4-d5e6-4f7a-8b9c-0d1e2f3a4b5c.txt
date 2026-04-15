@@ -1,7 +1,0 @@
-internalIP: 10.0.27.61
-externalIP: 208.67.222.222
-userName: IvanD
-os: ChromeOS Flex
-MACAddress: d4-7b-9f-a3-44-c5
-RAM: 4
-Storage: 64
