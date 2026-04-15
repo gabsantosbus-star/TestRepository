@@ -1,7 +1,0 @@
-internalIP: 10.0.6.83
-externalIP: 1.1.1.1
-userName: HannaS
-os: Rocky Linux 9
-MACAddress: f0-3a-2c-d9-77-b1
-RAM: 96
-Storage: 768
