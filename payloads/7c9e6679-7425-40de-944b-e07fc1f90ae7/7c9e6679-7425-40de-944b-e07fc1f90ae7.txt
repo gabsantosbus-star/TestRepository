@@ -1,0 +1,7 @@
+internalIP: 10.0.31.76
+externalIP: 34.120.8.92
+userName: EthanL
+os: Debian 12
+MACAddress: e2-5b-7c-f1-99-22
+RAM: 64
+Storage: 512

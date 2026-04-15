@@ -1,0 +1,7 @@
+internalIP: 10.0.9.28
+externalIP: 185.199.108.153
+userName: DianaP
+os: Windows 10 Pro
+MACAddress: c4-2f-1a-8d-66-ee
+RAM: 8
+Storage: 128

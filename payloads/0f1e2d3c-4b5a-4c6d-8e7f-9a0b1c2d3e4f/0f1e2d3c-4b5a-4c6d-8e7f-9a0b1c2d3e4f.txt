@@ -1,0 +1,7 @@
+internalIP: 10.0.23.47
+externalIP: 203.0.113.89
+userName: AliceW
+os: Ubuntu 22.04
+MACAddress: a4-2b-3c-11-45-f9
+RAM: 16
+Storage: 1024

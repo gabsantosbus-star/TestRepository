@@ -1,0 +1,7 @@
+internalIP: 10.0.12.54
+externalIP: 157.240.22.35
+userName: FatimaR
+os: Arch Linux
+MACAddress: a6-8d-3e-cc-11-78
+RAM: 24
+Storage: 1000

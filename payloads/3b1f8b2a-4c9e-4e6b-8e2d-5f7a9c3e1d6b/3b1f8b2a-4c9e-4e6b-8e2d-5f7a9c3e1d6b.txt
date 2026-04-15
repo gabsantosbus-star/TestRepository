@@ -1,0 +1,7 @@
+internalIP: 10.0.5.112
+externalIP: 198.51.100.34
+userName: BobK
+os: macOS Ventura
+MACAddress: b8-7a-1f-9c-33-d4
+RAM: 32
+Storage: 256
