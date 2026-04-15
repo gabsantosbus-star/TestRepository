@@ -1,7 +1,8 @@
-internalIP: 10.0.17.93
-externalIP: 192.0.2.67
-userName: CharlieM
-os: Fedora 39
+ID: 5c4d3e2f-1a2b-4c3d-8e5f-6a7b8c9d0e1f
+Internal: 10.0.17.93
+External: 192.0.2.67
+Username: CharlieM
+OS: Fedora 39
 MACAddress: d0-9e-5a-b2-77-3c
 RAM: 128
 Storage: 2048
