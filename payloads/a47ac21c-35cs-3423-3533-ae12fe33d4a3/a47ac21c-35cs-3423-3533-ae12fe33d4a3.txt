@@ -1,7 +1,0 @@
-internalIP: 10.0.1.1
-externalIP: 8.8.8.8
-userName: John
-os: Windows 11
-MACAddress: 1232-23213-24
-RAM: 64
-Storage: 512
