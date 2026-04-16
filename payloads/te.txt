@@ -1,0 +1,299 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Manager
+{
+    public partial class Form1 : Form
+    {
+        CustomListView listView;
+        // === COLOR DEFINITIONS ===
+        private static readonly Color TITLE_BAR_COLOR = Color.FromArgb(20, 21, 29);
+        private static readonly Color BTN_NORMAL_COLOR = Color.FromArgb(20, 21, 29);
+        private static readonly Color TITLE_TEXT_COLOR = Color.White;
+        private static readonly Color BTN_TEXT_COLOR = Color.White;
+        private static readonly Color BTN_HOVER_COLOR = Color.FromArgb(60, 60, 65);
+        private static readonly Color CLOSE_BTN_HOVER_COLOR = Color.FromArgb(232, 17, 35);
+        private static readonly Color CLOSE_BTN_PRESS_COLOR = Color.FromArgb(180, 10, 25);
+        private static readonly Color FORM_BKG_COLOR = Color.FromArgb(26, 27, 37);
+
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private Panel titleBar;
+        private Label titleLabel;
+        private Button minimizeBtn;
+        private Button maximizeBtn;
+        private Button closeBtn;
+        private int hoveredIndex = -1;
+
+        [DllImport("user32.dll")]
+        private static extern int ShowScrollBar(IntPtr hWnd, int wBar, int bShow);
+
+        private const int SB_HORZ = 0;
+
+        private void InitializeCustomTitleBar()
+        {
+            //Create title bar panel
+            titleBar = new Panel();
+            titleBar.Height = 35;
+            titleBar.Dock = DockStyle.Top;
+            titleBar.BackColor = TITLE_BAR_COLOR;
+            titleBar.MouseDown += TitleBar_MouseDown;
+            titleBar.MouseMove += TitleBar_MouseMove;
+            titleBar.MouseUp += TitleBar_MouseUp;
+
+            //Create title label
+            titleLabel = new Label();
+            titleLabel.Text = "Central Server Manager";
+            titleLabel.ForeColor = TITLE_TEXT_COLOR;
+            titleLabel.Font = new Font("Calibri", 10, FontStyle.Bold);
+            titleLabel.Location = new Point(10, 8);
+            titleLabel.AutoSize = true;
+
+            //Create buttons
+            closeBtn = CreateCloseButton();
+            maximizeBtn = CreateMaximizeButton();
+            minimizeBtn = CreateMinimizeButton();
+
+
+            //Add controls to panel
+            titleBar.Controls.Add(minimizeBtn);
+            titleBar.Controls.Add(maximizeBtn);
+            titleBar.Controls.Add(closeBtn);
+            titleBar.Controls.Add(titleLabel);
+
+            //Add panel to form
+            this.Controls.Add(titleBar);
+        }
+
+        private Button CreateCloseButton()
+        {
+            //Create Close Button
+            Button closeBtn = new Button();
+            closeBtn.Text = "X";
+            closeBtn.Font = new Font("Calibri", 10, FontStyle.Bold);
+            closeBtn.Size = new Size(45, 35);
+            closeBtn.FlatStyle = FlatStyle.Flat;
+            closeBtn.FlatAppearance.BorderSize = 0;
+            closeBtn.BackColor = BTN_NORMAL_COLOR;
+            closeBtn.ForeColor = BTN_TEXT_COLOR;
+            closeBtn.Dock = DockStyle.Right;
+
+            //Mouse enter - hover effect
+            closeBtn.MouseEnter += (s, e) =>
+            {
+                closeBtn.BackColor = CLOSE_BTN_HOVER_COLOR;
+                closeBtn.ForeColor = BTN_TEXT_COLOR;
+            };
+            //Mouse leave - normal effect
+            closeBtn.MouseLeave += (s, e) =>
+            {
+                closeBtn.BackColor = BTN_NORMAL_COLOR;
+                closeBtn.ForeColor = BTN_TEXT_COLOR;
+            };
+            //Mouse down - press effect
+            closeBtn.MouseDown += (s, e) =>
+            {
+                closeBtn.BackColor = CLOSE_BTN_PRESS_COLOR;
+                closeBtn.ForeColor = Color.LightGray;
+            };
+            //Mouse up - hover effect
+            closeBtn.MouseUp += (s, e) =>
+            {
+                closeBtn.BackColor = CLOSE_BTN_HOVER_COLOR;
+                closeBtn.ForeColor = BTN_TEXT_COLOR;
+            };
+            closeBtn.Click += (s, e) => this.Close();
+
+            return closeBtn;
+        }
+
+        private Button CreateMaximizeButton()
+        {
+            Button btn = new Button();
+            btn.Text = "🗖";
+            btn.Size = new Size(45, 35);
+            btn.Font = new Font("Calibri", 10, FontStyle.Bold);
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = BTN_NORMAL_COLOR;
+            btn.ForeColor = BTN_TEXT_COLOR;
+            btn.Dock = DockStyle.Right;
+
+            btn.MouseEnter += (s, e) =>
+            {
+                btn.BackColor = BTN_HOVER_COLOR;
+                btn.ForeColor = BTN_TEXT_COLOR;
+            };
+
+            btn.MouseLeave += (s, e) =>
+            {
+                btn.BackColor = BTN_NORMAL_COLOR;
+                btn.ForeColor = BTN_TEXT_COLOR;
+            };
+
+            btn.Click += (s, e) =>
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    btn.Text = "🗖";
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    btn.Text = "🗗";
+                }
+            };
+
+            return btn;
+        }
+
+        private Button CreateMinimizeButton()
+        {
+            Button btn = new Button();
+            btn.Text = "__";
+            btn.Size = new Size(45, 35);
+            btn.Font = new Font("Calibri", 10, FontStyle.Bold);
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = BTN_NORMAL_COLOR;
+            btn.ForeColor = BTN_TEXT_COLOR;
+            btn.Dock = DockStyle.Right;
+            btn.TextAlign = ContentAlignment.MiddleCenter;
+            btn.Padding = new Padding(0, -7, 0, 7);
+
+            btn.MouseEnter += (s, e) =>
+            {
+                btn.BackColor = BTN_HOVER_COLOR;
+                btn.ForeColor = BTN_TEXT_COLOR;
+            };
+
+            btn.MouseLeave += (s, e) =>
+            {
+                btn.BackColor = BTN_NORMAL_COLOR;
+                btn.ForeColor = BTN_TEXT_COLOR;
+            };
+
+            btn.Click += (s, e) =>
+            {
+                this.WindowState = FormWindowState.Minimized;
+            };
+
+            return btn;
+        }
+
+        private void TitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void TitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void TitleBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void RATPanel_Resize(object sender, EventArgs e)
+        {
+            PositionPanels();
+        }
+
+        private void PositionPanels()
+        {
+            const int topOffset = 40;
+            int availableHeight = this.ClientSize.Height - topOffset;
+
+            int halfHeight = availableHeight / 2;
+
+            ratPanel.SetBounds(15, topOffset + 15, this.ClientSize.Width - 30, availableHeight - halfHeight - 30);
+            ratPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            CCPanel.SetBounds(15, topOffset + 15 + halfHeight, this.ClientSize.Width - 30, halfHeight - 30);
+            CCPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        }
+
+        private void AddSampleData()
+        {
+            ListViewItem item = new ListViewItem("1");
+            item.SubItems.Add("192.168.1.100");
+            item.SubItems.Add("203.0.113.50");
+            item.SubItems.Add("john@PC-001");
+            item.SubItems.Add("Windows 10");
+            item.SubItems.Add("Connected");
+            item.SubItems.Add("Admin");
+            item.SubItems.Add("C2-Server-01");
+            item.SubItems.Add("MID-12345");
+            item.SubItems.Add("Details");
+            ListViewItem item1 = new ListViewItem("2");
+            item1.SubItems.Add("192.168.1.100");
+            item1.SubItems.Add("203.0.113.50");
+            item1.SubItems.Add("john@PC-001");
+            item1.SubItems.Add("Windows 10");
+            item1.SubItems.Add("Connected");
+            item1.SubItems.Add("Admin");
+            item1.SubItems.Add("C2-Server-01");
+            item1.SubItems.Add("MID-12345");
+            item1.SubItems.Add("Details");
+            listView.Items.Add(item);
+            listView.Items.Add(item1);
+        }
+
+        private void InitializeCCListView()
+        {
+            listView = new CustomListView();
+            listView.SetBounds(15, 40, CCPanel.ClientSize.Width - 30, CCPanel.ClientSize.Height - 50);
+            listView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CCPanel.Controls.Add(listView);
+            listView.Columns.Add("ID", 100);
+            listView.Columns.Add("Internal IP", 150);
+            listView.Columns.Add("External IP", 150);
+            listView.Columns.Add("User@PC", 200);
+            listView.Columns.Add("OS", 100);
+            listView.Columns.Add("Status", 100);
+            listView.Columns.Add("Role", 100);
+            listView.Columns.Add("Connected C2", 150);
+            listView.Columns.Add("Connected MID", 150);
+            listView.Columns.Add("View", 150);
+            listView.Columns.Add("", 5);
+            int[] minWidths = new int[] { 100, 150, 150, 200, 100, 100, 100, 150, 150, 150 };
+            listView.setMinimumColumnWidths(minWidths);
+
+            this.Resize += listView.setColumns;
+
+            listView.ColumnWidthChanging += (s, e) => e.Cancel = true;
+
+            AddSampleData();
+        }
+        public Form1()
+        {
+            InitializeComponent();
+            this.Resize += RATPanel_Resize;
+            //Remove the default title bar
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = FORM_BKG_COLOR;
+            InitializeCustomTitleBar();
+            InitializeCCListView();
+        }
+        
+    }
+}
