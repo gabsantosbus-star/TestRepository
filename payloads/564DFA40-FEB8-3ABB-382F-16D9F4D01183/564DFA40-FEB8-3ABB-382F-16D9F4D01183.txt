@@ -1,7 +1,8 @@
 ID: 564DFA40-FEB8-3ABB-382F-16D9F4D01183
 Internal: 192.168.87.129
-External: 192.168.87.129
+External: 64.32.17.130
 Username: johnstone
 OS: Version 14.0 (Build 23A344)
 MACAddress: 
 RAM: 32
+Storage: 
