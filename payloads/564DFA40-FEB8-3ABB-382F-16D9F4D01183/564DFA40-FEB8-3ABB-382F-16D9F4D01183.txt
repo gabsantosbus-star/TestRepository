@@ -2,7 +2,7 @@ ID: 564DFA40-FEB8-3ABB-382F-16D9F4D01183
 Internal: 192.168.87.129
 External: 64.32.17.130
 Username: johnstone
-OS: Version 14.0 (Build 23A344)
+OS: Sonoma
 MACAddress: 00:0C:29:D0:11:83
 RAM: 32
 Storage: 79.80 GB
