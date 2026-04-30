@@ -3,6 +3,6 @@ Internal: 192.168.87.129
 External: 64.32.17.130
 Username: johnstone
 OS: Version 14.0 (Build 23A344)
-MACAddress: 
+MACAddress: 00:0C:29:D0:11:83
 RAM: 32
-Storage: 
+Storage: 79.80 GB
