@@ -1,8 +1,0 @@
-ID: 0f1e2d3c-4b5a-4c6d-8e7f-9a0b1c2d3e4f
-Internal: 10.0.23.47
-External: 203.0.113.89
-Username: AliceW
-OS: Ubuntu 22.04
-MACAddress: a4-2b-3c-11-45-f9
-RAM: 16
-Storage: 1024
