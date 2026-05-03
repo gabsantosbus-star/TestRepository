@@ -1,8 +1,0 @@
-ID: 7c9e6679-7425-40de-944b-e07fc1f90ae7
-Internal: 10.0.31.75
-External: 34.120.8.92
-Username: EthanL
-OS: Windows 11
-MACAddress: e2-5b-7c-f1-99-22
-RAM: 64
-Storage: 512
