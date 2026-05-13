@@ -1,8 +1,0 @@
-ID: 464DFA40-FEB8-3ABB-382F-16D9F4D01184
-Internal: 192.168.87.12
-External: 89.187.161.220
-Username: Gabriel
-OS: Windows11
-MACAddress: 01:0C:29:D0:11:83
-RAM: 64
-Storage: 512 GB
