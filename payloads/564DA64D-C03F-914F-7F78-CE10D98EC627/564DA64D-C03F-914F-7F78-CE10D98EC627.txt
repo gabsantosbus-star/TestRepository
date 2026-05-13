@@ -1,0 +1,8 @@
+ID: 564DA64D-C03F-914F-7F78-CE10D98EC627
+Internal: 192.168.194.130
+External: 107.167.25.130
+Username: cullenb
+OS: Monterey
+MACAddress: 00:0C:29:8E:C6:27
+RAM: 32
+Storage: 79.80 GB
