@@ -1,8 +1,0 @@
-ID: 564DA64D-C03F-914F-7F78-CE10D98EC627
-Internal: 192.168.121.128
-External: 45.58.187.66
-Username: maxwell-white
-OS: Monterey
-MACAddress: 00:50:56:2D:ED:C4
-RAM: 32
-Storage: 70.49 GB
