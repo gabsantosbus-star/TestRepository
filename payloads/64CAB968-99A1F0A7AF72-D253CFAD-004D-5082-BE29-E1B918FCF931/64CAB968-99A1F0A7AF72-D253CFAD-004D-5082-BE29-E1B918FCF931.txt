@@ -1,0 +1,9 @@
+ID: 64CAB968-99A1F0A7AF72-D253CFAD-004D-5082-BE29-E1B918FCF931
+Internal: 192.168.87.129
+External: 172.93.100.166
+Username: johnstone
+OS: Sonoma 14.0
+Hostname: John’s Mac
+MACAddress: 00:0C:29:D0:11:83
+RAM: 32
+Storage: 79.80 GB
