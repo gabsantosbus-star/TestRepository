@@ -1,0 +1,11 @@
+=== System Info ===
+Username: johnstone
+Hostname: Johns-Mac.local
+OS: macOS 14.0
+CPU Type: 11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz
+Hardware UUID: 564DFA40-FEB8-3ABB-382F-16D9F4D01183
+Internal IP: 192.168.87.129
+External IP: 170.39.215.22
+MAC Address: 00:0c:29:d0:11:83
+RAM: Memory: 32 GB
+Storage: Total: 80Gi, Available: 24Gi
