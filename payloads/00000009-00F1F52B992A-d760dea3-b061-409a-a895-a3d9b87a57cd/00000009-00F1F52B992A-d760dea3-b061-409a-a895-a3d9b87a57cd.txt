@@ -1,7 +1,0 @@
-ID: 00000009-00F1F52B992A-d760dea3-b061-409a-a895-a3d9b87a57cd
- Username: SuperMan
- Hostname: DESKTOP-SHIOEUI
- OS: Windows 11(Version 6.3.26200)
- MACAddress: 00F1F52B992A
- RAM: 63.73 GB
- Storage: 1.37 TB
