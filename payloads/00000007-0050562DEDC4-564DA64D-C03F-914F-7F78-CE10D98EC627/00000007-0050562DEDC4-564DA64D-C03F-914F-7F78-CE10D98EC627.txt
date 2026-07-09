@@ -1,0 +1,9 @@
+ID: 00000007-0050562DEDC4-564DA64D-C03F-914F-7F78-CE10D98EC627
+Internal: 192.168.121.128
+External: 67.43.57.10
+Username: maxwell-white
+OS: macOS 12.7.6
+Hostname: Maxwells-Mac.local
+MACAddress: 00:50:56:2d:ed:c4
+RAM: Memory: 32 GB
+Storage: Total: 70Gi, Available: 14Gi
