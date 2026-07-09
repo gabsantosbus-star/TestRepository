@@ -1,9 +1,0 @@
-ID: 00000000--
-Internal: 
-External: 67.43.57.10
-Username: johnstone
-OS: macOS 14.0
-Hostname: Johns-Mac.local
-MACAddress: 
-RAM: 
-Storage: Total: 80Gi, Available: 16Gi
