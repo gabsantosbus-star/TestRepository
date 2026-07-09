@@ -1,0 +1,7 @@
+ID: 00000009-00F1F52B9936-a570a13a-9251-4642-8ef0-86fa36dfb915
+ Username: Benjamin
+ Hostname: DESKTOP-46AB77N
+ OS: Windows 11(Version 6.3.26200)
+ MACAddress: 00F1F52B9936
+ RAM: 63.73
+ Storage: 1.37 TB
