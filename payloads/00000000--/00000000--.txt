@@ -1,9 +1,0 @@
-ID: 00000000--
-Internal: 
-External: 84.17.41.94
-Username: maxwell-white
-OS: macOS 12.7.6
-Hostname: Maxwells-Mac.local
-MACAddress: 
-RAM: 
-Storage: 14 GB
