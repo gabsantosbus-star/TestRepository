@@ -1,0 +1,9 @@
+ID: 16777228-BAC63B00B16B-E28D7304-0700-5E7D-8599-5A7EB2E81B90
+Internal: 192.168.0.129
+External: 
+Username: vm
+OS: macOS 15.6.1
+Hostname: VMsVirtlMachine
+MACAddress: ba:c6:3b:00:b1:6b
+RAM: 12
+Storage: 37 GB
